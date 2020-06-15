@@ -38,7 +38,6 @@
 					$nome 	          = $dados->nome;
           $datanascimento 	= $dados->datanascimento;
           $cidade_id 	        = $dados->cidade_id;
-         // $estado         	= $dados->estado;
           $email 	          = $dados->email;
           $celular 	        = $dados->celular;
           //mostrar na tela 

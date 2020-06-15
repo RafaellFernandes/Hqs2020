@@ -18,8 +18,8 @@
 			<tr>
                 <td>ID</td>
                 <td>Foto</td>
-				<td>Titulo do Quadrinho / Numero</td>
-				<td>Data</td>
+				        <td>Titulo do Quadrinho / Numero</td>
+			        	<td>Data</td>
                 <td>Valor</td>
                 <td>Editora</td>
                 <td>Opções</td>
@@ -82,9 +82,14 @@
 				"info": "Mostrando Paginas de  _PAGE_ de _PAGES_",
 				"infoEmpty": "No records available",
 				"infoFiltered": "(filtered from _MAX_ total records)",
-				"search": "buscar"
-				
-			}
+				"search": "buscar",
+        "paginate": {
+          "first":      "Primeiro",
+          "last":       "Último",
+          "next":       "Próximo",
+          "previous":   "Anterior"
+				},
+      }
 		} );
 	})
 	</script>
