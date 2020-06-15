@@ -79,6 +79,15 @@
 			<div class="col-12 col-md-4">
 				<label for="foto">Foto (JPG)</label>
 				<input type="file" name="foto" id="foto" class="form-control">
+				<input type="hidden" name="foto" value="<?=$foto?>" class="form-control">
+                <?php  
+                     
+                if( !empty($foto)){
+                    $foto = "<img src='../fotos/".$foto."p.jpg' alt='".$nome."' width='150px'>";
+                } else{
+                    $foto = "";
+                }?>
+                <div><?php echo $foto ;?></div>
 			</div>
 
 			<div class="col-12 col-md-6">
@@ -101,11 +110,11 @@
 
 			<div class="col12 col-md-6">
 				<label for="senha">Senha:</label>
-				<input type="password" name="senha" id="senha" class="form-control">
+				<input type="password" name="senha" id="senha" class="form-control" value="<?=$senha?>">
 			</div>
 			<div class="col12 col-md-6">
 				<label for="senha2">Redigite a Senha:</label>
-				<input type="password" name="senha2" id="senha2" class="form-control">
+				<input type="password" name="senha2" id="senha2" class="form-control"  data-parsley-equalto="#senha" data-parsley-trigger="keyup" data-parsley-error-message="Senha não confere" value="<?=$senha?>">
 			</div>
 
 			<div class="col-12 col-md-3">
@@ -153,6 +162,7 @@
 			$("#cpf").inputmask("999.999.999-99");
 			$("#telefone").inputmask("(99) 9999-9999");
 			$("#celular").inputmask("(99) 99999-9999");
+			$("#cep").inputmask("99.999-999");
 		});
 		function verificarCpf(cpf) {
 			//funcao ajax para verificar o cpf
@@ -169,6 +179,15 @@
 					}
 			})
 		}
+		function confirmarEmail(email){
+               $.get("verificaEmail.php", {email:email,id:<?=$id;?>}, function(dados){
+                   if(dados != ""){
+                       alert(dados);
+                       $("#email").val("");
+                   }
+               }) 
+            }
+			
 		$("#cep").blur(function(){
 			//pegar o cep
 			cep = $("#cep").val();

@@ -12,8 +12,6 @@
 
     $id = $titulo = $data = $numero = $valor = $resumo = $tipo_id = $editora_id = "";
 
-
-
     foreach ($_POST as $key => $value) {
         $$key = trim ( $value );
     }
@@ -59,10 +57,10 @@
         //qual arquivo ira ser gfravado
         if ( !empty ( $_FILES["capa"]["name"] ) ) {
             $capa = $arquivo;
-
+        }
             $sql = "update quadrinho set titulo = :titulo,
             numero = :numero, valor = :valor, resumo = :resumo,
-            capa = :capa, tipo_id = :tipo_id, editora_id = :editora_id, data = :data,
+            capa = :capa, tipo_id = :tipo_id, editora_id = :editora_id, data = :data
             where id = :id limit 1 ";
             $consulta = $pdo->prepare($sql);
             $consulta->bindParam(":titulo",$titulo);
@@ -115,6 +113,6 @@
         exit;
     }
       exit;
-  }
+  
 
 echo "<p class='alert alert-danger'>Requisição Invalida!</p>";
